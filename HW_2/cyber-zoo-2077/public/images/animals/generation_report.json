@@ -1,0 +1,509 @@
+{
+  "timestamp": "2025-12-05T22:10:32.373Z",
+  "total": 100,
+  "successful": 100,
+  "failed": 0,
+  "successfulImages": [
+    {
+      "name": "Lion",
+      "fileName": "lion.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Tiger",
+      "fileName": "tiger.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Cheetah",
+      "fileName": "cheetah.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Leopard",
+      "fileName": "leopard.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Jaguar",
+      "fileName": "jaguar.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Snow Leopard",
+      "fileName": "snow_leopard.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Lynx",
+      "fileName": "lynx.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Cougar",
+      "fileName": "cougar.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Serval",
+      "fileName": "serval.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Caracal",
+      "fileName": "caracal.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Hyena",
+      "fileName": "hyena.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "African Wild Dog",
+      "fileName": "african_wild_dog.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Wolf",
+      "fileName": "wolf.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Red Fox",
+      "fileName": "red_fox.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Arctic Fox",
+      "fileName": "arctic_fox.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Brown Bear",
+      "fileName": "brown_bear.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Polar Bear",
+      "fileName": "polar_bear.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Giant Panda Bear",
+      "fileName": "giant_panda_bear.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Koala",
+      "fileName": "koala.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Kangaroo",
+      "fileName": "kangaroo.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Wallaby",
+      "fileName": "wallaby.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Giraffe",
+      "fileName": "giraffe.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Zebra",
+      "fileName": "zebra.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Elephant",
+      "fileName": "elephant.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Rhinoceros",
+      "fileName": "rhinoceros.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Hippopotamus",
+      "fileName": "hippopotamus.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Bison",
+      "fileName": "bison.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Buffalo",
+      "fileName": "buffalo.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Antelope",
+      "fileName": "antelope.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Gazelle",
+      "fileName": "gazelle.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Moose",
+      "fileName": "moose.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Reindeer",
+      "fileName": "reindeer.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Camel",
+      "fileName": "camel.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Llama",
+      "fileName": "llama.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Alpaca",
+      "fileName": "alpaca.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Sloth",
+      "fileName": "sloth.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Armadillo",
+      "fileName": "armadillo.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Anteater",
+      "fileName": "anteater.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Meerkat",
+      "fileName": "meerkat.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Lemur",
+      "fileName": "lemur.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Chimpanzee",
+      "fileName": "chimpanzee.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Gorilla",
+      "fileName": "gorilla.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Orang-utan",
+      "fileName": "orang-utan.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Baboon",
+      "fileName": "baboon.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Capybara",
+      "fileName": "capybara.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Red Panda",
+      "fileName": "red_panda.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Otter",
+      "fileName": "otter.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Raccoon",
+      "fileName": "raccoon.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Wolverine",
+      "fileName": "wolverine.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Mongoose",
+      "fileName": "mongoose.png",
+      "class": "Mammalia"
+    },
+    {
+      "name": "Komodo Dragon",
+      "fileName": "komodo_dragon.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Iguana",
+      "fileName": "iguana.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Chameleon",
+      "fileName": "chameleon.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Gecko",
+      "fileName": "gecko.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Ball Python",
+      "fileName": "ball_python.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Red Tail Boa (common boa)",
+      "fileName": "red_tail_boa_common_boa.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Anaconda",
+      "fileName": "anaconda.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "King Cobra",
+      "fileName": "king_cobra.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Crocodile",
+      "fileName": "crocodile.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Alligator",
+      "fileName": "alligator.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Sea Turtle",
+      "fileName": "sea_turtle.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Aldabra Giant Tortoise",
+      "fileName": "aldabra_giant_tortoise.png",
+      "class": "Reptilia"
+    },
+    {
+      "name": "Bald Eagle",
+      "fileName": "bald_eagle.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Heron",
+      "fileName": "heron.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Owl",
+      "fileName": "owl.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Barn Owl",
+      "fileName": "barn_owl.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Snowy Owl",
+      "fileName": "snowy_owl.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Falcon",
+      "fileName": "falcon.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Ferruginous Hawk",
+      "fileName": "ferruginous_hawk.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Vulture",
+      "fileName": "vulture.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Penguin",
+      "fileName": "penguin.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Flamingo",
+      "fileName": "flamingo.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Peacock",
+      "fileName": "peacock.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Ostrich",
+      "fileName": "ostrich.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Emu",
+      "fileName": "emu.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Toucan",
+      "fileName": "toucan.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Parrot",
+      "fileName": "parrot.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Macaw",
+      "fileName": "macaw.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Cockatoo",
+      "fileName": "cockatoo.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Swan",
+      "fileName": "swan.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Crane",
+      "fileName": "crane.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Stork",
+      "fileName": "stork.png",
+      "class": "Aves"
+    },
+    {
+      "name": "Poison Dart Frog",
+      "fileName": "poison_dart_frog.png",
+      "class": "Amphibia"
+    },
+    {
+      "name": "Tree Frog",
+      "fileName": "tree_frog.png",
+      "class": "Amphibia"
+    },
+    {
+      "name": "Salamander",
+      "fileName": "salamander.png",
+      "class": "Amphibia"
+    },
+    {
+      "name": "Axolotl",
+      "fileName": "axolotl.png",
+      "class": "Amphibia"
+    },
+    {
+      "name": "Common Toad",
+      "fileName": "common_toad.png",
+      "class": "Amphibia"
+    },
+    {
+      "name": "Clownfish",
+      "fileName": "clownfish.png",
+      "class": "Actinopterygii"
+    },
+    {
+      "name": "Tang",
+      "fileName": "tang.png",
+      "class": "Actinopterygii"
+    },
+    {
+      "name": "Piranha",
+      "fileName": "piranha.png",
+      "class": "Actinopterygii"
+    },
+    {
+      "name": "Electric Eel",
+      "fileName": "electric_eel.png",
+      "class": "Actinopterygii"
+    },
+    {
+      "name": "Stingray",
+      "fileName": "stingray.png",
+      "class": "Chondrichthyes"
+    },
+    {
+      "name": "Manta Ray",
+      "fileName": "manta_ray.png",
+      "class": "Chondrichthyes"
+    },
+    {
+      "name": "Great White Shark",
+      "fileName": "great_white_shark.png",
+      "class": "Chondrichthyes"
+    },
+    {
+      "name": "Hammerhead Shark",
+      "fileName": "hammerhead_shark.png",
+      "class": "Chondrichthyes"
+    },
+    {
+      "name": "Tiger Shark",
+      "fileName": "tiger_shark.png",
+      "class": "Chondrichthyes"
+    },
+    {
+      "name": "Octopus",
+      "fileName": "octopus.png",
+      "class": "Cephalopoda"
+    },
+    {
+      "name": "Squid",
+      "fileName": "squid.png",
+      "class": "Cephalopoda"
+    },
+    {
+      "name": "Jellyfish",
+      "fileName": "jellyfish.png",
+      "class": "Scyphozoa"
+    },
+    {
+      "name": "Starfish",
+      "fileName": "starfish.png",
+      "class": "Asteroidea"
+    }
+  ],
+  "failedImages": []
+}
