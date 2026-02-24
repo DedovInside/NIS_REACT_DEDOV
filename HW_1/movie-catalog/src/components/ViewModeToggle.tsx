@@ -1,4 +1,5 @@
 import { memo } from 'react';
+
 import type { ViewMode } from '../types/Movie';
 
 interface ViewModeToggleProps {

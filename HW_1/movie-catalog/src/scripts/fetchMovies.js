@@ -17,9 +17,9 @@ async function fetchMovies() {
 
     for (let page = 1; page <= totalPages; page++) {
       console.log(`Загружаем страницу ${page}/${totalPages}...`);
-      
+
       const response = await fetch(
-        `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${page}&include_adult=false`
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${page}&include_adult=false`,
       );
 
       if (!response.ok) {
@@ -27,32 +27,32 @@ async function fetchMovies() {
       }
 
       const data = await response.json();
-      
+
       // Фильтруем дубликаты на лету
       const uniqueMovies = data.results.filter(movie => {
         // Проверяем наличие постера
         if (!movie.poster_path) return false;
-        
+
         // Проверяем дубликаты по ID
         if (seenIds.has(movie.id)) return false;
-        
+
         // Проверяем дубликаты по названию (нормализуем для сравнения)
         const normalizedTitle = movie.title.toLowerCase().trim();
         if (seenTitles.has(normalizedTitle)) return false;
-        
+
         // Проверяем год выпуска
         const year = movie.release_date ? new Date(movie.release_date).getFullYear() : null;
         if (!year || year < 1930 || year > 2020) return false;
-        
+
         // Добавляем в множества для отслеживания
         seenIds.add(movie.id);
         seenTitles.add(normalizedTitle);
-        
+
         return true;
       });
-      
+
       allMovies.push(...uniqueMovies);
-      
+
       // Небольшая задержка между запросами, чтобы не превысить лимиты API
       await new Promise(resolve => setTimeout(resolve, 200));
     }
@@ -60,21 +60,19 @@ async function fetchMovies() {
     console.log(`Найдено ${allMovies.length} уникальных фильмов`);
 
     // Преобразуем в наш формат
-    const movies = allMovies
-      .slice(0, 4000)
-      .map((movie) => ({
-        id: movie.id,
-        title: movie.title,
-        year: movie.release_date ? new Date(movie.release_date).getFullYear() : 2024,
-        posterUrl: `${IMAGE_BASE_URL}${movie.poster_path}`,
-        overview: movie.overview || 'Описание недоступно',
-        isFavorite: false
-      }));
+    const movies = allMovies.slice(0, 4000).map(movie => ({
+      id: movie.id,
+      title: movie.title,
+      year: movie.release_date ? new Date(movie.release_date).getFullYear() : 2024,
+      posterUrl: `${IMAGE_BASE_URL}${movie.poster_path}`,
+      overview: movie.overview || 'Описание недоступно',
+      isFavorite: false,
+    }));
 
     // Финальная проверка на дубликаты
     const finalMovies = [];
     const finalIds = new Set();
-    
+
     for (const movie of movies) {
       if (!finalIds.has(movie.id)) {
         finalIds.add(movie.id);
@@ -102,10 +100,9 @@ export const moviesData: Movie[] = ${JSON.stringify(finalMovies, null, 2)};
     fs.writeFileSync(outputPath, fileContent);
     console.log(`Создан файл movies.ts с ${finalMovies.length} уникальными фильмами`);
     console.log(`Файл сохранен: ${outputPath}`);
-
   } catch (error) {
     console.error('Ошибка при получении данных:', error.message);
-    
+
     if (error.message.includes('401')) {
       console.error('Проверьте правильность API ключа TMDB');
     } else if (error.message.includes('429')) {

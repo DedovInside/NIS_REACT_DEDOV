@@ -1,4 +1,5 @@
 import { memo } from 'react';
+
 import type { FilterMode } from '../types/Movie';
 
 interface FilterButtonsProps {
