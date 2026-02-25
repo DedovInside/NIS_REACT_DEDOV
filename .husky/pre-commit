@@ -1,0 +1,2 @@
+cd HW_1/movie-catalog
+npx lint-staged

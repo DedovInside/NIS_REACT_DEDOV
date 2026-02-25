@@ -69,7 +69,6 @@
   color: inherit;
   cursor: pointer;
   transition: all 0.3s ease;
-  
 }
 
 .filter-buttons-btn-active {
@@ -478,5 +477,4 @@
     width: 100%;
     max-width: 500px;
   }
-
 }

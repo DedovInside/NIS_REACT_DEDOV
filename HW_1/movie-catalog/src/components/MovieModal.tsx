@@ -1,4 +1,5 @@
 import { useEffect, memo } from 'react';
+
 import type { Movie } from '../types/Movie';
 
 interface MovieModalProps {
@@ -36,25 +37,32 @@ const MovieModal = memo(({ movie, isOpen, onClose }: MovieModalProps) => {
   };
 
   return (
-    <div className="modal-backdrop" onClick={handleBackdropClick}>
+    <div
+      className="modal-backdrop"
+      onClick={handleBackdropClick}
+      role="presentation"
+      onKeyDown={e => {
+        if (e.key === 'Escape') onClose();
+      }}
+    >
       <div className="modal-content">
         <button className="modal-close" onClick={onClose} aria-label="Закрыть">
           ✕
         </button>
-        
+
         <div className="modal-body">
           <div className="modal-poster">
-            <img 
-              src={movie.posterUrl} 
+            <img
+              src={movie.posterUrl}
               alt={`${movie.title} poster`}
               className="modal-poster-image"
             />
           </div>
-          
+
           <div className="modal-info">
             <h2 className="modal-title">{movie.title}</h2>
             <p className="modal-year">{movie.year}</p>
-            
+
             <div className="modal-overview">
               <h3>Описание:</h3>
               <p>{movie.overview}</p>

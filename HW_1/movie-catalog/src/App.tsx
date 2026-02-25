@@ -1,11 +1,13 @@
 import { useState, useMemo, useCallback } from 'react';
+
 import type { Movie, FilterMode, ViewMode } from './types/Movie';
-import { moviesData } from './data/movies';
 import MovieCard from './components/MovieCard';
-import SearchInput from './components/SearchInput';
 import FilterButtons from './components/FilterButtons';
-import ViewModeToggle from './components/ViewModeToggle';
 import MovieModal from './components/MovieModal';
+import SearchInput from './components/SearchInput';
+import ViewModeToggle from './components/ViewModeToggle';
+import { moviesData } from './data/movies';
+import { filterMovies } from './utils/filterMovies';
 import './App.css';
 
 function App() {
@@ -17,12 +19,10 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleFavorite = useCallback((id: number) => {
-    setMovies(prevMovies => 
-      prevMovies.map(movie => 
-        movie.id === id 
-          ? { ...movie, isFavorite: !movie.isFavorite }
-          : movie
-      )
+    setMovies(prevMovies =>
+      prevMovies.map(movie =>
+        movie.id === id ? { ...movie, isFavorite: !movie.isFavorite } : movie,
+      ),
     );
   }, []);
 
@@ -36,25 +36,12 @@ function App() {
     setSelectedMovie(null);
   }, []);
 
-  const filteredMovies = useMemo(() => {
-    let filtered = movies;
+  const filteredMovies = useMemo(
+    () => filterMovies(movies, filterMode, searchQuery),
+    [movies, filterMode, searchQuery],
+  );
 
-    if (filterMode === 'FAVORITES') {
-      filtered = filtered.filter(movie => movie.isFavorite);
-    }
-
-    if (searchQuery.trim()) {
-      filtered = filtered.filter(movie => 
-        movie.title.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    return filtered;
-  }, [movies, filterMode, searchQuery]);
-
-  const favoriteCount = useMemo(() => 
-    movies.filter(movie => movie.isFavorite).length
-  , [movies]);
+  const favoriteCount = useMemo(() => movies.filter(movie => movie.isFavorite).length, [movies]);
 
   const viewModeClass = viewMode.toLowerCase();
 
@@ -69,29 +56,19 @@ function App() {
 
       <div className="app-controls">
         <div className="app-filters">
-          <FilterButtons 
-            currentFilter={filterMode}
-            onFilterChange={setFilterMode}
-          />
+          <FilterButtons currentFilter={filterMode} onFilterChange={setFilterMode} />
         </div>
-        
+
         <SearchInput onSearch={setSearchQuery} />
-        
-        <ViewModeToggle 
-          currentMode={viewMode}
-          onModeChange={setViewMode}
-        />
+
+        <ViewModeToggle currentMode={viewMode} onModeChange={setViewMode} />
       </div>
 
       <main className="app-content">
         {filteredMovies.length === 0 ? (
           <div className="app-empty-state">
             <p>Фильмов нет</p>
-            {searchQuery && (
-              <p className="app-empty-hint">
-                Попробуйте изменить поисковый запрос
-              </p>
-            )}
+            {searchQuery && <p className="app-empty-hint">Попробуйте изменить поисковый запрос</p>}
           </div>
         ) : (
           <div className={`movies-grid movies-grid-${viewModeClass}`}>
@@ -108,11 +85,7 @@ function App() {
         )}
       </main>
 
-      <MovieModal 
-        movie={selectedMovie}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      />
+      <MovieModal movie={selectedMovie} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
