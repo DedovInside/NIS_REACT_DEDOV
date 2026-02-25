@@ -17,11 +17,11 @@ const SearchInput = ({ onSearch, placeholder = 'Search movies...' }: SearchInput
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === 'Enter') {
-        handleSearch()
+        handleSearch();
       }
     },
     [handleSearch],
-  )
+  );
 
   return (
     <div className="search-input">
