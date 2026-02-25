@@ -1,2 +1,5 @@
 cd HW_1/movie-catalog
 npx lint-staged
+
+cd ../../HW_3/e-commerce-admin
+npx lint-staged
