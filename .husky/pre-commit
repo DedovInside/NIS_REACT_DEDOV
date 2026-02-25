@@ -1,0 +1,2 @@
+cd HW_1/movie-catalog
+npm run lint

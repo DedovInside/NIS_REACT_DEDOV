@@ -1,0 +1,24 @@
+{
+  "name": "nis_react_dedov",
+  "version": "1.0.0",
+  "description": "Репозиторий для домашних заданий по курсу \"Промышленная веб-разработка на React\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DedovInside/NIS_REACT_DEDOV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DedovInside/NIS_REACT_DEDOV/issues"
+  },
+  "homepage": "https://github.com/DedovInside/NIS_REACT_DEDOV#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
