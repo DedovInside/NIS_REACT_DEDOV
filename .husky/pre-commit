@@ -1,2 +1,2 @@
 cd HW_1/movie-catalog
-npx run lint-staged
+npx lint-staged
