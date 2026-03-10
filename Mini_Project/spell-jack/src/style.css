@@ -734,7 +734,6 @@ body {
   gap: 4px;
 }
 
-/* Header */
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -779,13 +778,11 @@ body {
   color: #2c3e50;
 }
 
-/* Vue Router active link */
 .nav-link.router-link-active {
   background-color: rgba(241, 196, 15, 0.2);
   border-color: #f1c40f;
 }
 
-/* Shop */
 .shop-container {
   padding: 20px;
   max-width: 800px;
@@ -872,11 +869,16 @@ h2 {
   border-radius: 8px;
   min-height: 60px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
-/* Deck Editor */
+.card-description strong {
+  display: block;
+  color: var(--color-text);
+}
+
 .deck-editor-container {
   padding: 20px;
   max-width: 900px;
@@ -940,7 +942,6 @@ p {
   font-size: 1.1em;
 }
 
-/* Special cards in DeckEditor */
 .card.special-card {
   background: linear-gradient(145deg, #3c5470, #2c3e50);
   border: 2px solid #f39c12;
@@ -1416,8 +1417,7 @@ p {
 .activation-info { margin-bottom: 8px; color: var(--color-text); }
 .activation-description { color: var(--color-text-secondary); font-size: 0.9em; font-style: italic; }
 
-.card-description { margin-bottom: 20px; background: var(--color-surface); }
-.card-description strong { color: var(--color-text); display: block; margin-bottom: 8px; }
+.card-modal .card-description { margin-bottom: 20px; margin-top: 0; background: var(--color-surface); }
 .card-description p { margin: 0; color: var(--color-text-secondary); line-height: 1.5; }
 
 .cost-section {
