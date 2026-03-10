@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type {Card} from '../types'
+import type { Card } from '../types';
 
 defineProps<{
-  visible: boolean
-  deck: Card[]
-}>()
+  visible: boolean;
+  deck: Card[];
+}>();
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 </script>
 
 <template>
@@ -24,14 +24,14 @@ const emit = defineEmits<{
 
       <div class="deck-grid">
         <div
-            v-for="card in deck"
-            :key="card.id"
-            :class="[
+          v-for="card in deck"
+          :key="card.id"
+          :class="[
             'card-tile',
             { red: card.suit === '♥' || card.suit === '♦' },
             { special: card.special },
           ]"
-            :title="`${card.value}${card.suit}`"
+          :title="`${card.value}${card.suit}`"
         >
           <span class="tile-value">{{ card.value }}</span>
           <span class="tile-suit">{{ card.suit }}</span>

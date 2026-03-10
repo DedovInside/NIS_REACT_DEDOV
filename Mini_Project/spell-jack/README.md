@@ -16,8 +16,8 @@ SpellJack - браузерная карточная игра, реализова
 
 ## Список технологий
 
-|        Технология        |                   Роль                           |
-|--------------------------|--------------------------------------------------|
+| Технология               | Роль                                             |
+| ------------------------ | ------------------------------------------------ |
 | **Vue 3**                | UI-фреймворк, реактивность через Composition API |
 | **TypeScript**           | Статическая типизация всего проекта              |
 | **Pinia**                | Глобальное хранилище состояния игры              |
@@ -25,6 +25,8 @@ SpellJack - браузерная карточная игра, реализова
 | **Vite**                 | Сборщик и dev-сервер                             |
 | **Telegram Web App SDK** | Интеграция с Telegram Mini Apps                  |
 | **Vercel**               | Хостинг и деплой                                 |
+| **ESLint**               | Статический анализ кода (правила TS + Vue)        |
+| **Prettier**             | Автоформатирование кода                          |
 | **CSS (custom)**         | Стилизация с кастомными анимациями               |
 
 ---
@@ -53,6 +55,19 @@ npm run dev
 ```bash
 npm run build
 npm run preview
+```
+
+### Линтинг и форматирование
+
+```bash
+# Проверить код на ошибки
+npm run lint
+
+# Исправить автоисправляемые ошибки
+npm run lint:fix
+
+# Отформатировать весь код по Prettier
+npm run format
 ```
 
 ### Деплой на Vercel
@@ -131,12 +146,12 @@ npm run preview
 Проект построен с использованием **Composition API** и паттерна **composables** (**Composables Pattern**) - принципу, при котором вся бизнес-логика выносится в переиспользуемые composable-функции, а компоненты остаются тонкими и отвечают только за отображение.
 
 ```md
-MainGame.vue             оркестратор
-     |
-     |-- useGameLoop.ts           старт партии, Hit, Stand, ход дилера
-     |-- useSpecialCardActions.ts  обработчики 21 специальной карты
-     |-- useCardScoring.ts        подсчёт очков и бонусов
-     |-- useDeckBuilder.ts        создание и перемешивание колод
+MainGame.vue оркестратор
+|
+|-- useGameLoop.ts старт партии, Hit, Stand, ход дилера
+|-- useSpecialCardActions.ts обработчики 21 специальной карты
+|-- useCardScoring.ts подсчёт очков и бонусов
+|-- useDeckBuilder.ts создание и перемешивание колод
 ```
 
 ---
@@ -146,48 +161,48 @@ MainGame.vue             оркестратор
 ```md
 src/
 |-- components/
-|   |-- MainGame.vue          # Оркестратор игры (шаблон + склейка composables)
-|   |-- Shop.vue              # Магазин карт
-|   |-- DeckEditor.vue        # Редактор колоды
-|   |-- AppHeader.vue         # Навигация с монетами
-|   |-- PlayerHand.vue        # Рука игрока с бонус-индикаторами
-|   |-- DealerHand.vue        # Рука дилера
-|   |-- GameControls.vue      # Кнопки управления
-|   |-- CardModal.vue         # Модальное окно информации о карте
-|   |-- ActualDeckControl.vue # Просмотр текущей колоды
-|   |-- SpecialCardsPanel.vue # Панель специальных карт
+| |-- MainGame.vue # Оркестратор игры (шаблон + склейка composables)
+| |-- Shop.vue # Магазин карт
+| |-- DeckEditor.vue # Редактор колоды
+| |-- AppHeader.vue # Навигация с монетами
+| |-- PlayerHand.vue # Рука игрока с бонус-индикаторами
+| |-- DealerHand.vue # Рука дилера
+| |-- GameControls.vue # Кнопки управления
+| |-- CardModal.vue # Модальное окно информации о карте
+| |-- ActualDeckControl.vue # Просмотр текущей колоды
+| |-- SpecialCardsPanel.vue # Панель специальных карт
 |-- composables/
-|   |-- useGameLoop.ts        # Игровой цикл: старт, Hit, Stand, ход дилера
-|   |-- useSpecialCardActions.ts # Обработчики всех 21 специальных карт
-|   |-- useCardScoring.ts     # Подсчёт очков и бонусов
-|   |-- useDeckBuilder.ts     # Создание и перемешивание колод
-|   |-- useTelegram.ts        # Telegram Web App интеграция
+| |-- useGameLoop.ts # Игровой цикл: старт, Hit, Stand, ход дилера
+| |-- useSpecialCardActions.ts # Обработчики всех 21 специальных карт
+| |-- useCardScoring.ts # Подсчёт очков и бонусов
+| |-- useDeckBuilder.ts # Создание и перемешивание колод
+| |-- useTelegram.ts # Telegram Web App интеграция
 |-- stores/
-|   |-- game.ts               # Pinia store: всё глобальное состояние игры
+| |-- game.ts # Pinia store: всё глобальное состояние игры
 |-- data/
-|   |-- specialCards.ts       # Конфигурация 21 специальной карты
+| |-- specialCards.ts # Конфигурация 21 специальной карты
 |-- router/
-|   |-- index.ts              # Маршруты: /, /shop, /deck-editor
+| |-- index.ts # Маршруты: /, /shop, /deck-editor
 |-- types/
-|   |-- index.ts              # TypeScript-интерфейсы: Card, SpecialCard, ActiveEffects…
-|-- App.vue                   # Корневой компонент
-|-- main.ts                   # Точка входа + инициализация Telegram SDK
-|-- style.css                 # Глобальные стили и CSS-анимации
+| |-- index.ts # TypeScript-интерфейсы: Card, SpecialCard, ActiveEffects…
+|-- App.vue # Корневой компонент
+|-- main.ts # Точка входа + инициализация Telegram SDK
+|-- style.css # Глобальные стили и CSS-анимации
 ```
 
 ---
 
 ## Vue 3 vs React - ключевые отличия
 
-|        Аспект          | Vue 3 (данный проект)          | React (аналогичный подход)         |
-|------------------------|--------------------------------|------------------------------------|
-| Шаблоны                | HTML-based (`<template>`)      | JSX (JS + HTML в одном файле)      |
-| Реактивность           | Встроенная (`ref`, `reactive`) | Обновление через state и re-render |
-| Стейт-менеджмент       | Pinia (официальный)            | Redux / Zustand / MobX             |
-| Роутинг                | Vue Router (официальный)       | React Router (сторонний)           |
-| Компонентный синтаксис | Single File Components (`.vue`)| JS/TS components                   |
-| Директивы              | `v-if`, `v-for`, `v-model`     | Условный рендеринг через JS        |
-| Composables            | `useXxx()` (Composition API)   | Custom Hooks (`useXxx`)            |
+| Аспект                 | Vue 3 (данный проект)           | React (аналогичный подход)         |
+| ---------------------- | ------------------------------- | ---------------------------------- |
+| Шаблоны                | HTML-based (`<template>`)       | JSX (JS + HTML в одном файле)      |
+| Реактивность           | Встроенная (`ref`, `reactive`)  | Обновление через state и re-render |
+| Стейт-менеджмент       | Pinia (официальный)             | Redux / Zustand / MobX             |
+| Роутинг                | Vue Router (официальный)        | React Router (сторонний)           |
+| Компонентный синтаксис | Single File Components (`.vue`) | JS/TS components                   |
+| Директивы              | `v-if`, `v-for`, `v-model`      | Условный рендеринг через JS        |
+| Composables            | `useXxx()` (Composition API)    | Custom Hooks (`useXxx`)            |
 
 ---
 

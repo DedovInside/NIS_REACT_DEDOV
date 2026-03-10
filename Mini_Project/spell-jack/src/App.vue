@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import AppHeader from './components/AppHeader.vue'
-import { useTelegram } from './composables/useTelegram'
+import { onMounted } from 'vue';
+import AppHeader from './components/AppHeader.vue';
+import { useTelegram } from './composables/useTelegram';
 
-const { isTelegramApp, haptic } = useTelegram()
+const { isTelegramApp, haptic } = useTelegram();
 
 onMounted(() => {
   if (isTelegramApp.value) {
-    document.body.style.margin = '0'
-    document.body.style.padding = '0'
-    haptic('light')
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+    haptic('light');
   }
-})
+});
 </script>
 
 <template>

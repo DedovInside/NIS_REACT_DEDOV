@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useGameStore } from '../stores/game'
-import CardModal from './CardModal.vue'
-import type { Card, SpecialCard } from '../types'
+import { ref } from 'vue';
+import { useGameStore } from '../stores/game';
+import CardModal from './CardModal.vue';
+import type { Card, SpecialCard } from '../types';
 
-const store = useGameStore()
+const store = useGameStore();
 
-const selectedCard = ref<Card | SpecialCard | null>(null)
-const isModalOpen = ref(false)
+const selectedCard = ref<Card | SpecialCard | null>(null);
+const isModalOpen = ref(false);
 
 function handleCardClick(card: Card | SpecialCard) {
-  selectedCard.value = card
-  isModalOpen.value = true
+  selectedCard.value = card;
+  isModalOpen.value = true;
 }
 
 function handleModalClose() {
-  isModalOpen.value = false
-  selectedCard.value = null
+  isModalOpen.value = false;
+  selectedCard.value = null;
 }
 
 function handleBuy(card: Card | SpecialCard) {
-  store.buyCard(card as SpecialCard)
-  handleModalClose()
+  store.buyCard(card as SpecialCard);
+  handleModalClose();
 }
 
 function canAffordCard(card: SpecialCard): boolean {
-  return store.coins >= card.cost
+  return store.coins >= card.cost;
 }
 </script>
 

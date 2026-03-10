@@ -1,27 +1,30 @@
 <script setup lang="ts">
-import type { Card, SpecialCard } from '../types'
+import type { Card, SpecialCard } from '../types';
 
 defineProps<{
-  card: Card | SpecialCard | null
-  isOpen: boolean
-  canAfford?: boolean
-  showBuySection?: boolean
-}>()
+  card: Card | SpecialCard | null;
+  isOpen: boolean;
+  canAfford?: boolean;
+  showBuySection?: boolean;
+}>();
 
 const emit = defineEmits<{
-  close: []
-  buy: [card: Card | SpecialCard]
-}>()
+  close: [];
+  buy: [card: Card | SpecialCard];
+}>();
 
 function handleBackdropClick(e: MouseEvent) {
   if (e.target === e.currentTarget) {
-    emit('close')
+    emit('close');
   }
 }
 
 function getCardDescription(card: Card | SpecialCard): string {
   if (card.type === 'special') {
-    return (card as SpecialCard).description || `Специальная карта с эффектом: ${card.effect ?? 'unknown'}`
+    return (
+      (card as SpecialCard).description ||
+      `Специальная карта с эффектом: ${card.effect ?? 'unknown'}`
+    );
   }
 
   const valueDescriptions: Record<string, string> = {
@@ -29,10 +32,10 @@ function getCardDescription(card: Card | SpecialCard): string {
     K: 'Король - стоит 10 очков',
     Q: 'Дама - стоит 10 очков',
     J: 'Валет - стоит 10 очков',
-  }
-  const desc = valueDescriptions[card.value]
-  if (desc) return desc
-  return `Числовая карта достоинством ${card.value} очков`
+  };
+  const desc = valueDescriptions[card.value];
+  if (desc) return desc;
+  return `Числовая карта достоинством ${card.value} очков`;
 }
 </script>
 
@@ -62,16 +65,28 @@ function getCardDescription(card: Card | SpecialCard): string {
         </div>
 
         <div class="card-info">
-          <h4>{{ card.type === 'special' ? ((card as SpecialCard).name || card.id) : `${card.value}${card.suit}` }}</h4>
+          <h4>
+            {{
+              card.type === 'special'
+                ? (card as SpecialCard).name || card.id
+                : `${card.value}${card.suit}`
+            }}
+          </h4>
 
           <div v-if="card.type === 'special'" class="special-info">
             <div class="activation-info">
               <strong>Тип активации:</strong> {{ (card as SpecialCard).activationType }}
             </div>
             <div class="activation-description">
-              <template v-if="(card as SpecialCard).activationType === 'manual'">🖱️ Активируется вручную в игре</template>
-              <template v-else-if="(card as SpecialCard).activationType === 'passive'">⚡ Срабатывает автоматически при условии</template>
-              <template v-else-if="(card as SpecialCard).activationType === 'auto'">🔄 Активируется сразу при взятии карты</template>
+              <template v-if="(card as SpecialCard).activationType === 'manual'"
+                >🖱️ Активируется вручную в игре</template
+              >
+              <template v-else-if="(card as SpecialCard).activationType === 'passive'"
+                >⚡ Срабатывает автоматически при условии</template
+              >
+              <template v-else-if="(card as SpecialCard).activationType === 'auto'"
+                >🔄 Активируется сразу при взятии карты</template
+              >
             </div>
           </div>
 

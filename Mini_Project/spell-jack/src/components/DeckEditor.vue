@@ -1,41 +1,39 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useGameStore } from '../stores/game'
-import CardModal from './CardModal.vue'
-import type { Card, SpecialCard } from '../types'
+import { ref, computed } from 'vue';
+import { useGameStore } from '../stores/game';
+import CardModal from './CardModal.vue';
+import type { Card, SpecialCard } from '../types';
 
-const store = useGameStore()
+const store = useGameStore();
 
-const selectedCard = ref<Card | SpecialCard | null>(null)
-const isModalOpen = ref(false)
+const selectedCard = ref<Card | SpecialCard | null>(null);
+const isModalOpen = ref(false);
 
 function handleCardClick(card: Card | SpecialCard) {
-  selectedCard.value = card
-  isModalOpen.value = true
+  selectedCard.value = card;
+  isModalOpen.value = true;
 }
 
 function handleModalClose() {
-  isModalOpen.value = false
-  selectedCard.value = null
+  isModalOpen.value = false;
+  selectedCard.value = null;
 }
 
 const cardsNotInDeck = computed(() =>
   store.playerOwnedCards.filter(
-    (card) => !store.playerDeck.some((deckCard) => deckCard.id === card.id)
-  )
-)
+    card => !store.playerDeck.some(deckCard => deckCard.id === card.id),
+  ),
+);
 
 const regularCardsNotInDeck = computed(() =>
-  cardsNotInDeck.value.filter((card) => !card.type || card.type !== 'special')
-)
+  cardsNotInDeck.value.filter(card => !card.type || card.type !== 'special'),
+);
 
 const availableSpecialCards = computed(() =>
   store.playerOwnedCards.filter(
-    (card) =>
-      card.type === 'special' &&
-      !store.activeSpecialCards.some((ac) => ac.id === card.id)
-  )
-)
+    card => card.type === 'special' && !store.activeSpecialCards.some(ac => ac.id === card.id),
+  ),
+);
 
 const shortNames: Record<string, string> = {
   'Открытый взгляд': 'Взгляд',
@@ -47,30 +45,30 @@ const shortNames: Record<string, string> = {
   'Сброс напряжения': 'Сброс',
   'Критический выбор': 'Выбор',
   'Двойная ставка': 'x2 Ставка',
-  'Картограф': 'Карта',
+  Картограф: 'Карта',
   'Огненный туз': 'Огонь',
   'Счастливая семёрка': 'Семёрка',
-  'Листопад': 'Лист',
+  Листопад: 'Лист',
   'Масть удачи': 'Удача',
   'Карта предвидения': 'Видение',
-  'Стабилизатор': 'Стабил.',
+  Стабилизатор: 'Стабил.',
   'Золотое касание': 'Золото',
-  'Хронометр': 'Время',
+  Хронометр: 'Время',
   'Магнит мастей': 'Магнит',
   'Карта судьбы': 'Судьба',
   'Королевский указ': 'Указ',
-}
+};
 
 function getShortName(name: string): string {
-  return shortNames[name] || name
+  return shortNames[name] || name;
 }
 
 function addSpecialCard(card: Card) {
   if (store.activeSpecialCards.length >= 3) {
-    alert('Максимум 3 специальные карты в колоде!')
-    return
+    alert('Максимум 3 специальные карты в колоде!');
+    return;
   }
-  store.addSpecialCardToDeck(card as SpecialCard)
+  store.addSpecialCardToDeck(card as SpecialCard);
 }
 </script>
 
@@ -85,7 +83,11 @@ function addSpecialCard(card: Card) {
         <template v-if="store.playerDeck.length > 0">
           <div v-for="card in store.playerDeck" :key="card.id" class="deck-card">
             <div
-              :class="['card', { 'red-card': card.suit === '♥' || card.suit === '♦' }, { 'special-card': card.special }]"
+              :class="[
+                'card',
+                { 'red-card': card.suit === '♥' || card.suit === '♦' },
+                { 'special-card': card.special },
+              ]"
               style="cursor: pointer"
               title="Нажмите для просмотра информации"
               @click="handleCardClick(card)"
@@ -114,7 +116,9 @@ function addSpecialCard(card: Card) {
               <div class="card-value">{{ card.value }}</div>
               <div class="card-suit">{{ getShortName(card.name) }}</div>
             </div>
-            <button class="remove-card-button" @click="store.removeSpecialCardFromDeck(card.id)">-</button>
+            <button class="remove-card-button" @click="store.removeSpecialCardFromDeck(card.id)">
+              -
+            </button>
           </div>
         </template>
         <p v-else class="empty-message">Нет активных специальных карт</p>

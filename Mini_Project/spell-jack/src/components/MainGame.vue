@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { watch, onUnmounted, ref } from 'vue'
-import { useGameStore } from '../stores/game'
-import { useTelegram } from '../composables/useTelegram'
-import { useGameLoop } from '../composables/useGameLoop'
-import { useSpecialCardActions } from '../composables/useSpecialCardActions'
-import PlayerHand from './PlayerHand.vue'
-import DealerHand from './DealerHand.vue'
-import GameControls from './GameControls.vue'
-import ActualDeckControl from './ActualDeckControl.vue'
-import SpecialCardsPanel from './SpecialCardsPanel.vue'
+import { watch, onUnmounted, ref } from 'vue';
+import { useGameStore } from '../stores/game';
+import { useTelegram } from '../composables/useTelegram';
+import { useGameLoop } from '../composables/useGameLoop';
+import { useSpecialCardActions } from '../composables/useSpecialCardActions';
+import PlayerHand from './PlayerHand.vue';
+import DealerHand from './DealerHand.vue';
+import GameControls from './GameControls.vue';
+import ActualDeckControl from './ActualDeckControl.vue';
+import SpecialCardsPanel from './SpecialCardsPanel.vue';
 
-const store = useGameStore()
-const { shareScore } = useTelegram()
+const store = useGameStore();
+const { shareScore } = useTelegram();
 
 function showTemporaryMessage(msg: string, duration = 3000) {
-  winner.value = msg
+  winner.value = msg;
   setTimeout(() => {
-    if (winner.value === msg) winner.value = ''
-  }, duration)
+    if (winner.value === msg) winner.value = '';
+  }, duration);
 }
 
 const {
@@ -34,7 +34,7 @@ const {
   startNewGame: startNewGameBase,
   handleHit: handleHitBase,
   handleStand,
-} = useGameLoop(showTemporaryMessage)
+} = useGameLoop(showTemporaryMessage);
 
 const {
   isCardSelectionMode,
@@ -67,37 +67,32 @@ const {
   isPlayerTurn,
   showTemporaryMessage,
   checkWinner,
-)
+);
 
 // Оборачиваем startNewGame, чтобы передать сброс UI-состояний
 function startNewGame() {
-  startNewGameBase(resetSpecialCardState)
+  startNewGameBase(resetSpecialCardState);
 }
 
 // Оборачиваем handleHit, передавая реактивные ссылки на UI-состояния
 function handleHit() {
-  handleHitBase(
-    currentGamePlayerDeck,
-    showSuitChoice,
-    destinyPreview,
-    showDestinyPreview,
-  )
+  handleHitBase(currentGamePlayerDeck, showSuitChoice, destinyPreview, showDestinyPreview);
 }
 
-const showDeck = ref(false)
+const showDeck = ref(false);
 
 function handleEscKey(e: KeyboardEvent) {
-  if (e.key === 'Escape' && showDeck.value) showDeck.value = false
+  if (e.key === 'Escape' && showDeck.value) showDeck.value = false;
 }
 
-watch(showDeck, (val) => {
-  if (val) window.addEventListener('keydown', handleEscKey)
-  else window.removeEventListener('keydown', handleEscKey)
-})
+watch(showDeck, val => {
+  if (val) window.addEventListener('keydown', handleEscKey);
+  else window.removeEventListener('keydown', handleEscKey);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleEscKey)
-})
+  window.removeEventListener('keydown', handleEscKey);
+});
 </script>
 
 <template>
@@ -123,9 +118,14 @@ onUnmounted(() => {
           <div
             v-for="suit in ['♠', '♥', '♦', '♣']"
             :key="suit"
-            :class="['multiplier-item', { 'lucky-suit-boosted': store.activeEffects.luckySuitActive === suit }]"
+            :class="[
+              'multiplier-item',
+              { 'lucky-suit-boosted': store.activeEffects.luckySuitActive === suit },
+            ]"
           >
-            <span :class="['suit-symbol', { 'red-suit': suit === '♥' || suit === '♦' }]">{{ suit }}</span>
+            <span :class="['suit-symbol', { 'red-suit': suit === '♥' || suit === '♦' }]">{{
+              suit
+            }}</span>
             <span class="multiplier-value">x{{ store.getSuitMultiplier(suit) }}</span>
           </div>
         </div>
@@ -151,7 +151,11 @@ onUnmounted(() => {
         <div
           v-for="(card, index) in criticalChoiceCards"
           :key="index"
-          :class="['card', 'critical-choice-card', { 'red-card': card.suit === '♥' || card.suit === '♦' }]"
+          :class="[
+            'card',
+            'critical-choice-card',
+            { 'red-card': card.suit === '♥' || card.suit === '♦' },
+          ]"
           @click="handleCriticalCardChoice(index)"
         >
           <div class="card-value">{{ card.value }}</div>
@@ -183,7 +187,15 @@ onUnmounted(() => {
       <h3>🔮 Карта судьбы - предсказание будущего:</h3>
       <div class="destiny-preview-content">
         <div class="predicted-card">
-          <div :class="['card', { 'red-card': destinyPreview.nextCard.suit === '♥' || destinyPreview.nextCard.suit === '♦' }]">
+          <div
+            :class="[
+              'card',
+              {
+                'red-card':
+                  destinyPreview.nextCard.suit === '♥' || destinyPreview.nextCard.suit === '♦',
+              },
+            ]"
+          >
             <div class="card-value">{{ destinyPreview.nextCard.value }}</div>
             <div class="card-suit">{{ destinyPreview.nextCard.suit }}</div>
           </div>
@@ -203,7 +215,9 @@ onUnmounted(() => {
           </div>
           <div class="prediction-item">
             <span>Изменение:</span>
-            <span :class="['score-change', destinyPreview.scoreChange >= 0 ? 'positive' : 'negative']">
+            <span
+              :class="['score-change', destinyPreview.scoreChange >= 0 ? 'positive' : 'negative']"
+            >
               {{ destinyPreview.scoreChange >= 0 ? '+' : '' }}{{ destinyPreview.scoreChange }}
             </span>
           </div>

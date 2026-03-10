@@ -1,4 +1,4 @@
-import type { SpecialCard } from '../types'
+import type { SpecialCard } from '../types';
 
 export const specialCards: SpecialCard[] = [
   {
@@ -11,7 +11,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Открытый взгляд',
     description: 'Позволяет увидеть скрытую карту дилера.',
     effect: 'revealDealerCard',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-02',
@@ -23,7 +23,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Щит перегруза',
     description: 'При переборе сбрасывает последнюю карту и продолжает игру.',
     effect: 'shield',
-    activationType: 'passive'
+    activationType: 'passive',
   },
   {
     id: 'special-03',
@@ -35,7 +35,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Двойной удар',
     description: 'Удваивает очки следующей вытянутой карты.',
     effect: 'doubleNext',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-04',
@@ -47,7 +47,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Карта-ловушка',
     description: 'Заставляет дилера взять дополнительную карту.',
     effect: 'dealerTrap',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-05',
@@ -59,7 +59,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Обмен удачи',
     description: 'Обменивает одну карту из руки на верхнюю из колоды.',
     effect: 'swapCard',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-06',
@@ -69,9 +69,10 @@ export const specialCards: SpecialCard[] = [
     special: true,
     type: 'special',
     name: 'Тузовая броня',
-    description: 'Дает дополнительную защиту от перебора: один туз может считаться за 1 очко даже после стандартного снижения.',
+    description:
+      'Дает дополнительную защиту от перебора: один туз может считаться за 1 очко даже после стандартного снижения.',
     effect: 'aceArmor',
-    activationType: 'passive'
+    activationType: 'passive',
   },
   {
     id: 'special-07',
@@ -83,7 +84,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Сброс напряжения',
     description: 'Сбрасывает все карты и дает две новые.',
     effect: 'resetHand',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-08',
@@ -95,7 +96,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Критический выбор',
     description: 'Выбирает одну из трех верхних карт колоды.',
     effect: 'criticalChoice',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-09',
@@ -107,7 +108,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Двойная ставка',
     description: 'Удваивает награду за победу в этой партии.',
     effect: 'doubleBet',
-    activationType: 'passive'
+    activationType: 'passive',
   },
   {
     id: 'special-10',
@@ -119,7 +120,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Картограф',
     description: 'Показывает масть следующей карты в колоде.',
     effect: 'showNextSuit',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-11',
@@ -131,7 +132,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Огненный туз',
     description: 'Все тузы считаются за 12 очков в этой партии.',
     effect: 'fireAce',
-    activationType: 'passive'
+    activationType: 'passive',
   },
   {
     id: 'special-12',
@@ -143,7 +144,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Счастливая семёрка',
     description: 'При вытягивании 7 получает +7 монет.',
     effect: 'luckySeven',
-    activationType: 'passive'
+    activationType: 'passive',
   },
   {
     id: 'special-13',
@@ -155,7 +156,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Листопад',
     description: 'Сбрасывает случайную карту из руки и даёт +3 монеты.',
     effect: 'leafFall',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-14',
@@ -167,7 +168,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Масть удачи',
     description: 'Удваивает коэффициент случайной масти.',
     effect: 'luckySuit',
-    activationType: 'passive'
+    activationType: 'passive',
   },
   {
     id: 'special-15',
@@ -179,7 +180,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Карта предвидения',
     description: 'Показывает следующие 2 карты в колоде.',
     effect: 'foresight',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-16',
@@ -191,7 +192,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Стабилизатор',
     description: 'Убирает случайность коэффициентов, устанавливая их на 1.0 для новых карт.',
     effect: 'stabilizer',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-17',
@@ -203,7 +204,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Золотое касание',
     description: 'Следующая карта дает столько монет, сколько добавляет в счёт очков игрока',
     effect: 'goldenTouch',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-18',
@@ -215,7 +216,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Хронометр',
     description: 'Замедляет время - следующие 2 карты дают половину очков (округление вниз).',
     effect: 'chronometer',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-19',
@@ -227,7 +228,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Магнит мастей',
     description: 'Выбранная масть получает +1 к коэффициенту.',
     effect: 'suitMagnet',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-20',
@@ -239,7 +240,7 @@ export const specialCards: SpecialCard[] = [
     name: 'Карта судьбы',
     description: 'Показывает исход при взятии следующей карты.',
     effect: 'destiny',
-    activationType: 'manual'
+    activationType: 'manual',
   },
   {
     id: 'special-21',
@@ -251,6 +252,6 @@ export const specialCards: SpecialCard[] = [
     name: 'Королевский указ',
     description: 'Все карты дают +2 очка в этой партии.',
     effect: 'royalDecree',
-    activationType: 'passive'
-  }
-]
+    activationType: 'passive',
+  },
+];

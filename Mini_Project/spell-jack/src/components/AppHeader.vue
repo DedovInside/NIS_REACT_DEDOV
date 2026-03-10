@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import { useGameStore } from '../stores/game'
-import { useTelegram } from '../composables/useTelegram'
+import { RouterLink } from 'vue-router';
+import { useGameStore } from '../stores/game';
+import { useTelegram } from '../composables/useTelegram';
 
-const store = useGameStore()
-const { user, isTelegramApp } = useTelegram()
+const store = useGameStore();
+const { user, isTelegramApp } = useTelegram();
 </script>
 
 <template>

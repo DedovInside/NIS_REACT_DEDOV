@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { useGameStore } from '../stores/game'
+import { useGameStore } from '../stores/game';
 
-const store = useGameStore()
+const store = useGameStore();
 
 defineProps<{
-  isGameActive: boolean
-}>()
+  isGameActive: boolean;
+}>();
 
 const emit = defineEmits<{
-  hit: []
-  stand: []
-  newGame: []
-}>()
+  hit: [];
+  stand: [];
+  newGame: [];
+}>();
 </script>
 
 <template>
